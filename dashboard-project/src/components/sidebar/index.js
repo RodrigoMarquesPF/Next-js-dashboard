@@ -6,6 +6,7 @@ import { Users } from "lucide-react";
 import Link from "next/link";
 import { useContext } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const menuItems = [
   {
@@ -31,6 +32,7 @@ const menuItems = [
 export default function Sidebar() {
 
   const { sideBarOpen, setSideBarOpen } =useContext(GlobalContext);
+  const {status} = useSession()
 
   const pathName = usePathname();
   const router = useRouter();
